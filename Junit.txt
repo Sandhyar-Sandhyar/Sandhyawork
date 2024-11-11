@@ -1,0 +1,62 @@
+package com.example.RIP.test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.example.RIP.entity.Sentity;
+import com.example.RIP.repo.Srepo;
+
+
+@SpringBootTest
+class Hope {
+	
+	@Autowired
+	Srepo o;
+	
+
+	@Test
+	public void create() {
+		Sentity e=new Sentity();
+		e.setSid(19);
+		e.setSname("me");
+		e.setSprice(920);
+		o.save(e);
+		assertNotNull(o.findById(19).get());
+//		assertNotNull(o.findById(30).get());	
+	}
+	
+	@Test
+	public void get() {
+		List<Sentity> l=o.findAll();
+		assertThat(l).size().isGreaterThan(0);
+//		assertThat(l).size().isGreaterThan(6);
+	}
+	
+	@Test
+	public void update(){
+		Sentity s=o.findById(19).get();
+		s.setSname("me update");
+		s.setSprice(1000);
+		o.save(s);
+		assertNotEquals("me",o.findById(19).get().getSname());
+		assertNotEquals(920,o.findById(19).get().getSprice());
+//		assertNotEquals(1000,o.findById(19).get().getSprice());
+		
+	}
+	
+	@Test
+	public void del() {
+		assertTrue(o.existsById(19));
+		o.deleteById(19);
+		assertThat(o.existsById(19)).isFalse();
+//		assertThat(o.existsById(19)).isFalse();
+	}
+
+}
