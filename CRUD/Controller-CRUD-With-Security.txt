@@ -1,0 +1,67 @@
+package com.CRUD.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.csrf.CsrfToken;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.CRUD.controller.repo.Repo;
+import com.CRUD.entity.Student;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+@RestController
+public class Controller {
+	@Autowired
+	Repo obj;
+	
+	@GetMapping("csrf")
+	public CsrfToken gettoken(HttpServletRequest rq) {
+		return (CsrfToken) rq.getAttribute("_csrf");
+	}
+
+	
+	@PostMapping("/post")
+	public String getpost(@RequestBody Student s) {
+		obj.save(s);
+		return "inserted..";
+		
+	}
+	
+	@GetMapping("/get")
+	public List<Student> getmap(){
+		return obj.findAll();
+		}
+	
+	@DeleteMapping("/del/{id}")
+	public String getdel(@PathVariable int id) {
+		if(obj.existsById(id)) {
+			obj.deleteById(id);
+			return "deleted";
+		}else {
+			return "not fount";
+		}
+	}
+	
+	@PutMapping("/put/{id}")
+	public String getput(@PathVariable int id,@RequestBody Student s) {
+		Student update=obj.findById(id).orElse(null);
+		if(update!=null) {
+			update.setStudent_name(s.getStudent_name());
+			update.setStudent_marks(s.getStudent_marks());
+			obj.save(update);
+			return "updated";
+		}else {
+			return "not fount";
+		}
+	}
+	
+
+}
