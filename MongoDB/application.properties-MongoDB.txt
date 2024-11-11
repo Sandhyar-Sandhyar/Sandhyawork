@@ -1,0 +1,7 @@
+spring.application.name=MDB
+server.port=8085
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+spring.data.mongodb.database=Mydatabase
+spring.security.user.name=sandhya
+spring.security.user.password=san@123

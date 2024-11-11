@@ -1,0 +1,63 @@
+package com.MDB.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.csrf.CsrfToken;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.MDB.Repo.Mrepo;
+import com.MDB.data.Mdata;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+@RestController
+public class Controller {
+	@Autowired
+	Mrepo obj;
+	
+	@PostMapping("/post")
+	public String getpost(@RequestBody Mdata m) {
+		obj.save(m);
+		return "inserted";
+	}
+	
+	@GetMapping("/csrf")
+	public CsrfToken gettokken(HttpServletRequest rq) {
+		return (CsrfToken) rq.getAttribute("_csrf");
+	}
+	
+	@GetMapping("/get")
+	public List<Mdata> getmap(){
+		return obj.findAll();
+	}
+	
+	@DeleteMapping("/del/{id}")
+	public String getdel(@PathVariable int id) {
+		if (obj.existsById(id)) {
+			obj.deleteById(id);
+			return "deleted";
+		}else {
+			return "not fount";
+		}
+	}
+	
+	@PutMapping("/put/{id}")
+	public String getput(@RequestBody Mdata ma,@PathVariable int id) {
+		Mdata update=obj.findById(id).orElse(null);
+		if(update!=null) {
+			update.setSname(ma.getSname());
+			update.setSage(ma.getSage());	
+			obj.save(update);
+			return "updated";
+		}else {
+			return "not found";
+		}
+	}
+}
