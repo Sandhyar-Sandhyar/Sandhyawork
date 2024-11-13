@@ -1,0 +1,45 @@
+let count=6;
+let temp=count;
+let fact=1;
+while(count>=1){
+    fact=fact*count;
+    count--;
+}
+console.log(factorial of${temp}  is ${fact});
+
+
+
+
+
+
+
+
+
+let count=1;
+while(count<=10){
+    console.log(while count is ${count});
+    count++
+}
+
+
+
+
+
+var count=1;
+do{
+    console.log(count);
+    count++;
+}while(count<=10);
+// while(count<=10); for condition fall
+
+
+
+
+
+for (let i=1;i<=7;i++){ 
+    console.log(for loop count is ${i});
+}
+
+
+
+
