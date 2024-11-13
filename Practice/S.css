@@ -1,0 +1,91 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: times new roman,cursive, Times, serif, Times, serif, Times, serif,Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    /* align-items: center;      */
+    position: relative;
+    top: 60pxpx;  
+    /* height: 100vh;              */
+    
+    
+}
+/* both align item and 100vh are for center */
+
+.container{
+    background-color: antiquewhite;
+    border-radius: 10px;
+    box-shadow: 0 1px rgb(137, 126, 126);
+    padding: 10px;
+    width: 280px;
+    border: 1px solid black;
+    box-shadow: none;
+    
+    /* reduse height */
+}
+.form{
+    display: flex;
+    flex-direction: column;
+   
+}
+h2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+/* little space korutte */
+
+label{
+    margin-bottom: 5px;
+}
+
+/* input{
+    padding: 8px;
+    border-color: blanchedalmond;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    
+} */
+
+input{
+    padding: 8px;
+    border-color: blanchedalmond;
+    border: 1px solid black;
+    border-radius: 100px;
+    margin: 0 0 20px 0;
+}
+
+#btn{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(28, 144, 222);
+    border: none;
+    color: white;
+    margin-top:8px;
+    margin-bottom:15px;
+
+    
+
+}
+#btn:hover{
+    background-color: rgb(26, 111, 168) ;
+}
+
+
+.msg{
+    text-align: center;
+    margin-top: 25px;
+    color: rgb(47, 206, 49);
+}
+
+.p1{
+   
+    display: inline;
+    margin-right: 10px;
+}
+.signinkey{
+    text-decoration: none;
+
+}
