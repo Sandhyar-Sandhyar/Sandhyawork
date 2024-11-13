@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        function function_validation(){
+            var name=document.getElementById("name").value.trim()
+            var email=document.getElementById("email").value.trim()
+            var password=document.getElementById("password").value.trim()
+
+            if(name.length<3){
+                alert("name sholud be more then 3 characters")
+                event.preventDefault();
+            }
+            if(password.length<=8){
+                alert("password sholud be more then 8 letters")
+                event.preventDefault();
+            }
+            else{
+                alert("Registration successful")
+            }
+            
+
+        }
+    </script>
+
+    
+</head>
+<body>
+    <div class="container">
+    <form onsubmit="return function_validation()" class="form">
+        <h2>Registration Form</h2>
+        <label for="name">Enter User Name</label>
+        <input type="text" id="name"  required/>
+
+        <label for="email">Enter Email Id</label>
+        <input type="email" id="email"  required/>
+
+        <label for="name">Enter Password</label>
+        <input type="text" id="password" 
+         required/>
+
+        <button type="submit" id="sbm">Submit</button>
+
+    </form>
+</div>
+    
+</body>
+</html>
