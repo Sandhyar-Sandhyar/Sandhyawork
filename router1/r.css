@@ -1,4 +1,4 @@
-body{
+/* body{
     font-family: cursive;
     padding: 0px;
     margin: 0px;
@@ -42,4 +42,85 @@ nav ul li a{
 nav ul li:hover{
     text-decoration: 1.8px underline rgb(14, 107, 14);
     
+} */
+
+body{
+    background-color: azure;
+    padding: 0;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+div{
+    padding: 10px 0px  0px 10px;
+}
+img{
+    margin-top: 20px;
+    
+    display: inline;
+    width: 400px;
+    padding: 0;
+    margin-right: 30px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    position: relative;
+    
+    
+}
+
+nav{
+    background-color: brown;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 0;
+}
+nav ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    
+}
+
+nav ul li{
+    margin-right: 80px;
+    margin-left: 40px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    font-weight: 500
+}   
+
+nav ul li a:hover{
+    text-decoration: underline;
+}
+
+h2{
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    font-size: xx-large;
+}
+h3{
+    font-size: x-large;
+    display: inline;
+    padding-bottom: 10px;
+    /* margin-bottom: 10px; */
+    border-bottom:1px solid black ;
+}
+
+h4{
+    font-size: x-large;
+    padding: 0;
+    margin: 0%;
+}
+
+ul{
+    list-style-type: circle;
+}
+
+ul li{
+    margin: 5px;
 }
