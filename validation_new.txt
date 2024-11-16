@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="new.css">
+    <script>
+        function validation(event) {
+            event.preventDefault();
+
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var msg = document.getElementById("msg");
+            var form = document.querySelector(".form");
+
+            if (name.length < 3) {
+                msg.textContent = "Name should be more then 3 characters";
+                msg.style.color = "red";
+                return false
+            }
+            else if (password.length < 8) {
+                msg.textContent = "password should be more then 8 characters";
+                msg.style.color = "red";
+            } else {
+                msg.textContent = "Registration successful";
+                msg.style.color = "green";
+                form.reset();
+                document.getElementById("name").addEventListener("input",function(){
+                    msg.textContent="";
+                });
+                document.getElementById("email").addEventListener("input",function(){
+                    msg.textContent="";
+                });
+                document.getElementById("password").addEventListener("input",function(){
+                    msg.textContent="";
+                });
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <form class="form" onsubmit="return validation(event)">
+            <h2>registration form</h2>
+            <label for="name">User Name</label>
+            <input type="text" id="name" required />
+
+            <label for="email">User Email-Id</label>
+            <input type="email" id="email" required />
+
+            <label for="password">User password</label>
+            <input type="number" id="password" required />
+
+            <button type="submit" id="sbm">register</button>
+        </form>
+        <div id="msg"></div>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="new.css">
+    <script>
+        function validation(event) {
+            event.preventDefault();
+
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var msg = document.getElementById("msg");
+            var form = document.querySelector(".form");
+
+            if (name.length < 3) {
+                msg.textContent = "Name should be more than 3 characters";
+                msg.style.color = "red";
+                return false;
+            } else if (password.length < 8) {
+                msg.textContent = "Password should be more than 8 characters";
+                msg.style.color = "red";
+                return false;
+            } else {
+                msg.textContent = "Registration successful";
+                msg.style.color = "green";
+                form.reset(); // Clear the form fields
+
+                // Keep the message displayed until user enters new details
+                document.getElementById("name").addEventListener("input", function() {
+                    msg.textContent = "";
+                });
+                document.getElementById("email").addEventListener("input", function() {
+                    msg.textContent = "";
+                });
+                document.getElementById("password").addEventListener("input", function() {
+                    msg.textContent = "";
+                });
+
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <form class="form" onsubmit="return validation(event)">
+            <h2>Registration Form</h2>
+            <label for="name">User Name</label>
+            <input type="text" id="name" required />
+
+            <label for="email">User Email-Id</label>
+            <input type="email" id="email" required />
+
+            <label for="password">User Password</label>
+            <input type="password" id="password" required />
+
+            <button type="submit" id="sbm">Register</button>
+        </form>
+        <div id="msg"></div>
+    </div>
+</body>
+
+</html> -->
+
+
+body{
+    padding: 0%;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+.container{
+    width: 300px;
+    background-color: blanchedalmond;
+    margin-top:100px ;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 1px 2px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+h2{
+    text-align: center;
+    margin-top: 0;
+    padding-top: 0;
+}
+label{
+    margin-bottom: 5px;
+}
+
+input{
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+#sbm{
+    margin-top: 8px;
+    background-color: green;
+    border: 1px solid black;
+    font-weight: 500;
+    padding: 8px;
+    border-radius: 10px;
+}
+#sbm:hover{
+    background-color: green;
+}
+
