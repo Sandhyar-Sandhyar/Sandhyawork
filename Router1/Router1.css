@@ -1,0 +1,68 @@
+body{
+    background-color: rgb(255, 255, 255);
+    padding: 0;
+    margin: 0;
+    font-family:'Times New Roman', Times, serif ;
+}
+
+nav{
+    background-color: rgba(88, 0, 0, 0.811);
+    border: 1px solid rgb(75, 0, 0);
+}
+button{
+    margin-right: 20px;
+}
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+nav ul li a{
+    position: relative;
+    top: 7px;
+    text-decoration: none;
+    color: white;
+}
+#logo{
+    color: black;
+    font-size: 25px;
+   
+}
+input{
+    border: 1px solid black;
+    padding: 5px;
+}
+button{
+    background-color: orange;
+    border: 1px solid black;
+    padding: 5px;
+}
+nav ul li a:hover{
+    text-decoration: underline;
+}
+.main{
+    padding-left: 20px;
+    padding-right: 2px;
+   
+}
+img{
+    width: 300px;
+    
+}
+/* .section{
+    display: flex;
+    flex-direction: row;
+    
+} */
+
+.section1{
+    display: flex;
+    justify-content: space-around;
+
+}
+.section2{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+
+}
